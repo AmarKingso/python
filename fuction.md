@@ -102,3 +102,10 @@ func(gender="male", age=18, name="amar")  #调用函数
   
   关键词收集参数同理，不过要两个“*”号
   
+### 混合使用各种参数的顺序
+- 先写普通，再普通收集（tuple），再关键词，再关键词收集（dict）  
+举例
+```
+def func(hobby, *args, address="xxx", **kwargs):
+  pass
+```
