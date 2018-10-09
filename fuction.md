@@ -109,3 +109,38 @@ func(gender="male", age=18, name="amar")  #调用函数
 def func(hobby, *args, address="xxx", **kwargs):
   pass
 ```
+
+## 函数文档
+- 用法  
+定义函数的第一行使用一对三引号，中间书写函数说明  
+
+- 查看方法  
+```
+help(func)
+
+#or
+
+func.__doc__
+```
+
+- 举例
+```
+def func(hobby1, *agrs, hobby2="swim"):
+    '''
+    这里是函数的帮助文档
+    '''
+    print(type(agrs))
+    print("我的爱好是{0}和{1}".format(hobby1,hobby2))
+    for i in agrs:
+    print(i)
+
+help(func)
+print("#" * 30)
+print(func.__doc__)
+```
+得到结果  
+Help on function func in module __main__:  
+func(hobby1, \*agrs, hobby2='swim')  
+    这里是函数的帮助文档  
+##############################  
+	这里是函数的帮助文档  
