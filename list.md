@@ -57,5 +57,18 @@ b = a * 2
 len()  
 max() and min()  
 list()  
+append(value)  
+insert(index,value)  
+pop()  
+remove(value) #删除list中所有value,没有则报错  
+count(value) #list中value出现的次数  
+clear()  
+extend(list)  
+copy() #浅拷贝  
 
-**To be continue**
+- 浅拷贝例子  
+```
+a = [1,2,3,[4,5,6]]
+b = a.copy()
+#a与b的id不同，但是a[3]与b[3]的id相同
+```
