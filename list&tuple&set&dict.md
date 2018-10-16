@@ -1,5 +1,5 @@
 # 引言  
-关于python中的list,dict,set的一些小知识点
+关于python中的list,dict,set,tuple的一些小知识点
 
 # list  
 - 创建方式
@@ -42,6 +42,11 @@ b = [i for i in a if i%2 == 1]
 
 #如果想使b中元素都为a的十倍
 b = [i*10 for i in a]
+
+#多重循环内涵
+b = [10,20,30]
+c = [n*m for m in a for n in b]
+#c为a与b中各元素相乘
 ```
 
 - list分片  
@@ -89,10 +94,73 @@ b = a.copy()
 - 定义  
 可看成不可更改的list,操作基本与list一致
 
-- 创建  
+- 声明  
 ```
 t = () #创建空元组
 t = (value,) #创建有一个元素的元组，","不可省，否则为int类型，括号可以省
 t = (value1,value2,...) #多个元素，括号可以省
 t = tuple(list) #类型转化
+```  
+  
+  
+**小知识点**  
+python中交换两个变量的快捷写法
 ```
+a=1
+b=3
+
+a,b = b,a
+```
+
+# set
+- 声明  
+```
+a = set()
+#or
+a = {value1,value2,...}#如果block内不写值，则a为dict
+```
+
+- 要点  
+  - 内涵（与list一致）
+  - 无序（所以无分片、索引）
+  - 内部只能放可哈希数据（tuple,dict）
+  - 函数
+    - 添加元素，add
+    - 删除元素，discard（无值不报错）,remove（无值报错）
+    - 其余与list基本一致
+  - 集合函数
+    - intersection
+    - difference（可以直接两个set相减）
+    - union
+    - issubset
+    - issuperset
+   
+  - frozen set  
+  不可被更改的集合
+  ```
+  s = frozenset()
+  ```
+  
+# dict
+- 声明
+```
+a = {}
+a = {key1:value1,key2:value2,...}
+a = dict(key1=value1,key2=value,...)
+```
+
+- 要点
+  - 无序序列（无分片、索引）
+  - key必须是可哈希值，value无所谓
+  - 函数  
+  del:del dict_name(key)  
+  items()  
+  keys()  
+  values()  
+  get(key，value = None) ：有key返回对应value，无则返回默认的value
+  fromkeys(list_name,value)
+  - 生成式（类似list的内涵）
+  ```
+  d = {"a":1,"b":2,"c":3}
+  d1 = {k:v for k,v in d.items() (if....)}
+  ```
